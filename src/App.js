@@ -16,5 +16,5 @@ class  App extends React.Component {
   );
   }
 }
-
+console.log(process.env.REACT_APP_LOCATION_API_KEY)
 export default App;
