@@ -19,6 +19,11 @@
 
 ## Credit and Collaborations
 
+
+
+
+
+
 - Name of feature:
 
 - Estimate of time needed to complete:
@@ -28,3 +33,5 @@
 - Finish time:
 
 - Actual time needed to complete:
+
+![WRRC](WRRC.jpg)
