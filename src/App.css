@@ -1,0 +1,10 @@
+header{
+    text-align: center;
+    background-color: rgb(148, 193, 238);
+    height: 5rem;
+}
+
+main{
+    width: 960px;
+    object-position: center;
+}
