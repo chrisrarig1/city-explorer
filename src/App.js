@@ -23,10 +23,16 @@ class  App extends React.Component {
   getLocation = async () => {
     let key = 'pk.1a4a76c1cb213e3affb7157e3fdfdc6a'
     let url = `https://us1.locationiq.com/v1/search.php?key=${key}&q=${this.state.cityName}&format=json`;
+    try{
     let citydata = await axios.get(url);
     this.setState({locationData:citydata.data[0]});
     console.log(this.state.locationData);
     this.getMap();
+    
+    }
+    catch (error){
+      alert('There was an error')
+    }
 
   }
 
@@ -34,6 +40,7 @@ class  App extends React.Component {
     let key = 'pk.1a4a76c1cb213e3affb7157e3fdfdc6a'
     let mapurl = `https://maps.locationiq.com/v3/staticmap?key=${key}&center=${this.state.locationData.lat},${this.state.locationData.lon}&zoom=11&size=400x400&format=png&maptype=<MapType>&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`;
     this.setState({cityMap:mapurl});
+    
   }
 
 
@@ -56,6 +63,7 @@ class  App extends React.Component {
         <h1 style={{margin:'1rem'}}>{this.state.cityName}</h1>
         <h2 style={{margin:'1rem'}}>Latitude: {this.state.locationData.lat}</h2>
         <h2 style={{margin:'1rem'}}>Longitude: {this.state.locationData.lon}</h2>
+        
         <Card style={{width: '40rem', display: 'block',marginLeft: 'auto',marginRight: 'auto'}}>
         <Card.Text style={{textAlign:'center', fontSize:'2rem'}}>
             Here is a map of {this.state.cityName}
@@ -69,7 +77,8 @@ class  App extends React.Component {
           Latitude: {this.state.locationData.lat}
           </Card.Text>
         </Card.Body>
-      </Card>
+        </Card>
+        
    
 
   </>
