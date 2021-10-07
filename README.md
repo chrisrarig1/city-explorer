@@ -3,35 +3,60 @@
 **Author**: Chris Rarig
 **Version**: 1.0.0
 
+*Live Link*: [https://chris-rarig-city-explorer.netlify.app](https://chris-rarig-city-explorer.netlify.app)
+*GitHub*: [City-Explorer-Repo](https://github.com/chrisrarig1/city-explorer)
+
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+- This application allows users to input and search for cities and receive specific information about that city such as coordinates and a map
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+- Languages: JavaScript, HTML, CSS
+- Libraries: BootStrap and LocationIQ API
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+- 10-06-2021 10:05pm - Application now has a fully-functional input, with a GET route for the location data
+- 10-06-2021 11:36pm - Application now has error handling and updated bootstrap format
 
 ## Credit and Collaborations
 
+- WRRC Planning - Chris Reichert and Chris Rarig
 
+## Feature Time Reports
 
+1. *Name of feature*: City Data Pull
 
+    - *Estimate of time needed to complete*: 2hrs
 
+    - *Start time*: 10-05-2021 10:15pm
 
-- Name of feature:
+    - *Finish time*: 10-05-2021 11:45pm
 
-- Estimate of time needed to complete:
+    - *Actual time needed to complete*: 1hr and 30mins
 
-- Start time:
+2. *Name of feature*: City Map
 
-- Finish time:
+    - *Estimate of time needed to complete*: 1hrs
 
-- Actual time needed to complete:
+    - *Start time*: 10-06-2021 8:30pm
+
+    - *Finish time*: 10-06-2021 10:00pm
+
+    - *Actual time needed to complete*: 1hr and 30mins
+
+3. *Name of feature*: Bootstrap
+
+    - *Estimate of time needed to complete*: 1hrs
+
+    - *Start time*: 10-06-2021 10:00pm
+
+    - *Finish time*: 10-06-2021 11:45pm
+
+    - *Actual time needed to complete*: 1hr and 45mins
 
 ![WRRC](WRRC.jpg)
