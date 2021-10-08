@@ -16,13 +16,13 @@ class  App extends React.Component {
     this.state = {
       cityName: '',
       locationData: {},
-      cityMap:''
+      cityMap:'',
+      error: false
     }
   }
 
   getLocation = async () => {
-    let key = 'pk.1a4a76c1cb213e3affb7157e3fdfdc6a'
-    let url = `https://us1.locationiq.com/v1/search.php?key=${key}&q=${this.state.cityName}&format=json`;
+    let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.cityName}&format=json`;
     try{
     let citydata = await axios.get(url);
     this.setState({locationData:citydata.data[0]});
@@ -30,15 +30,16 @@ class  App extends React.Component {
     this.getMap();
     
     }
+    ///Need to actually display error on page
     catch (error){
-      alert('There was an error')
+      this.setState({error: true});
+      console.log('There was an error:', error);
     }
 
   }
 
   getMap =  () =>{
-    let key = 'pk.1a4a76c1cb213e3affb7157e3fdfdc6a'
-    let mapurl = `https://maps.locationiq.com/v3/staticmap?key=${key}&center=${this.state.locationData.lat},${this.state.locationData.lon}&zoom=11&size=400x400&format=png&maptype=<MapType>&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`;
+    let mapurl = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.locationData.lat},${this.state.locationData.lon}&zoom=10&size=400x400&format=png&maptype=<MapType>&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`;
     this.setState({cityMap:mapurl});
     
   }
@@ -60,11 +61,20 @@ class  App extends React.Component {
         </Form>
 
         
-        <h1 style={{margin:'1rem'}}>{this.state.cityName}</h1>
+        {/* <h1 style={{margin:'1rem'}}>{this.state.cityName}</h1>
         <h2 style={{margin:'1rem'}}>Latitude: {this.state.locationData.lat}</h2>
-        <h2 style={{margin:'1rem'}}>Longitude: {this.state.locationData.lon}</h2>
-        
-        <Card style={{width: '40rem', display: 'block',marginLeft: 'auto',marginRight: 'auto'}}>
+        <h2 style={{margin:'1rem'}}>Longitude: {this.state.locationData.lon}</h2> */}
+                {this.state.error && <div>
+        <Card style={{width: '40rem',  display: 'block',marginLeft: 'auto',marginRight: 'auto'}}>
+        <Card.Text style={{textAlign:'center', fontSize:'2rem'}}>
+            There has been an error. Please try again
+          </Card.Text>
+        </Card>
+        </div>}
+
+
+        {this.state.locationData.display_name && <div>
+        <Card style={{width: '40rem',display: 'block',marginLeft: 'auto',marginRight: 'auto'}}>
         <Card.Text style={{textAlign:'center', fontSize:'2rem'}}>
             Here is a map of {this.state.cityName}
           </Card.Text>
@@ -78,6 +88,7 @@ class  App extends React.Component {
           </Card.Text>
         </Card.Body>
         </Card>
+        </div>}
         
    
 
