@@ -103,7 +103,7 @@ catch (error){
 
 
       {this.state.locationData.display_name && <div>
-        <Card style={{width: '40rem',display: 'block',marginLeft: 'auto',marginRight: 'auto'}}>
+        <Card style={{width: '40rem',display: 'block',marginLeft: 'auto',marginRight: 'auto'}}border="primary">
               <Card.Text style={{textAlign:'center', fontSize:'2rem'}}>
                 Here is a map of {this.state.cityName}
               </Card.Text>
