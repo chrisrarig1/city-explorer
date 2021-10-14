@@ -2,9 +2,11 @@ import axios from "axios";
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
 import './App.css';
 import Form from "react-bootstrap/Form";
 import Weather from './Weather.js';
+import Movie from './Movie.js';
 
 
 
@@ -18,10 +20,12 @@ class  App extends React.Component {
       cityName: '',
       locationData: {},
       weatherData:[],
+      movieData:[],
       cityMap:'',
       error: false,
       errormsg: '',
-      showWeather: false
+      showWeather: false,
+      showMovie: false
     }
   }
 
@@ -33,7 +37,9 @@ class  App extends React.Component {
     console.log(this.state.locationData);
     this.getMap();
     this.getWeather();
+    this.getMovie();
     this.state.showWeather= true;
+    this.state.showMovie = true;
     }
     ///Need to actually display error on page
     catch (error){
@@ -45,7 +51,7 @@ class  App extends React.Component {
   }
 
   getWeather = async () => {
-    let url = `http://localhost:3001/weather?lat=1223&lon=-1425&searchQuery=${this.state.cityName}`;
+    let url = `http://localhost:3001/weather?lat=${this.state.locationData.lat}&lon=${this.state.locationData.lon}&searchQuery=${this.state.cityName}`;
    try{
    let weatherdata = await axios.get(url);
    this.setState({weatherData:weatherdata.data});
@@ -60,6 +66,26 @@ catch (error){
   }
 
 }
+
+getMovie = async () => {
+  let url = `http://localhost:3001/movie?searchQuery=${this.state.cityName}`;
+ try{
+ let moviedata = await axios.get(url);
+ this.setState({movieData:moviedata.data});
+ console.log(this.state.movieData);
+ 
+ }
+     ///Need to actually display error on page
+catch (error){
+  this.setState({error: true});
+  this.setState({errormsg: error.message})
+  console.log('There was an error:', error);
+}
+
+}
+
+
+
 
   getMap =  () =>{
     let mapurl = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.locationData.lat},${this.state.locationData.lon}&zoom=10&size=400x400&format=png&maptype=<MapType>&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`;
@@ -88,7 +114,7 @@ catch (error){
         
         
       {this.state.error && <div>
-        <Card style={{width: '40rem',  display: 'block',marginLeft: 'auto',marginRight: 'auto'}}>
+        <Card style={{width: '40rem',marginLeft: 'auto',marginRight: 'auto'}}>
             <Card.Text style={{textAlign:'center', fontSize:'2rem'}}>
               There has been an error. Please try again
             </Card.Text>
@@ -103,7 +129,7 @@ catch (error){
 
 
       {this.state.locationData.display_name && <div>
-        <Card style={{width: '40rem',display: 'block',marginLeft: 'auto',marginRight: 'auto'}}border="primary">
+        <Card style={{width: '40rem',  display: 'block',marginLeft: 'auto',marginRight: 'auto'}}border="primary">
               <Card.Text style={{textAlign:'center', fontSize:'2rem'}}>
                 Here is a map of {this.state.cityName}
               </Card.Text>
@@ -118,11 +144,21 @@ catch (error){
           </Card.Body>
         </Card>
       </div>}
+      
+      <Row xs={1} md={4} className="g-4">
       {
-          this.state.showWeather &&
-          this.state.weatherData.map((el) => <Weather date={el.date} description={el.description} />)
+        this.state.showWeather &&
+        this.state.weatherData.map((el) => <Weather date={el.date} description={el.description} />)
+      }
+      </Row>
+
+      <Row xs={1} md={4} className="g-4">
+      {
+          this.state.showMovie &&
+          this.state.movieData.map((el) => 
+          <Movie title={el.title} overview={el.overview} ave={el.average_votes} tot={el.total_votes} image={el.image} release={el.release_date}/>)
         }
-    
+      </Row>
       
         
    
