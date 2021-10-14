@@ -1,4 +1,5 @@
 import React from "react";
+
 import Card from "react-bootstrap/Card";
 
 
@@ -8,22 +9,18 @@ class Weather extends React.Component{
      render(){
          return(
              <>
-             
-                             
-                        <Card style={{ width: '15rem', margin: '0 auto',marginBottom: '10px', marginTop: '10px', }} border="primary">
+                      
+                        <Card style={{marginBottom: '4rem', marginTop: '2rem',marginLeft: 'auto', marginRight:'auto'}} border="primary">
                             <Card.Body>
                             
-                                <Card.Title> {this.props.date}</Card.Title> 
-                                <Card.Text>
+                                <Card.Title style={{fontSize:'2rem', textAlign:'center'}}> {this.props.date}</Card.Title> 
+                                <Card.Text style={{fontSize:'1.15rem', textAlign:'center'}}>
                                 {this.props.description}
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    
+                      
                 
-                
-
-
              </>
          )
      }
