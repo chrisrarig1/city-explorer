@@ -5,8 +5,8 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import './App.css';
 import Form from "react-bootstrap/Form";
-import Weather from './Weather.js';
-import Movie from './Movie.js';
+import Weather from './components/WeatherDay/Weather.js';
+import Movie from './components/Movies/Movie.js';
 
 
 
