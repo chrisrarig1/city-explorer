@@ -6,6 +6,7 @@
 *Live Link*: [https://chris-rarig-city-explorer.netlify.app](https://chris-rarig-city-explorer.netlify.app)
 *GitHub*: [City-Explorer-Repo](https://github.com/chrisrarig1/city-explorer)
 *Trello*: [Planning-Board](https://trello.com/b/yJ6s01tq/lab06)
+*Heroku* [chris-r-city-explorer-server](https://chris-r-city-explorer-server.herokuapp.com/)
 
 ## Overview
 
@@ -23,6 +24,7 @@
 
 - 10-06-2021 10:05pm - Application now has a fully-functional input, with a GET route for the location data
 - 10-06-2021 11:36pm - Application now has error handling and updated bootstrap format
+- 10-16-2021 4:30pm - Organized code into Components
 
 ## Credit and Collaborations
 
@@ -60,4 +62,4 @@
 
     - *Actual time needed to complete*: 1hr and 45mins
 
-![WRRC](WRRC.jpg)
+![WRRC](WRRC4.png)
