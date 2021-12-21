@@ -7,6 +7,7 @@
 *GitHub*: [City-Explorer-Repo](https://github.com/chrisrarig1/city-explorer)
 *Trello*: [Planning-Board](https://trello.com/b/yJ6s01tq/lab06)
 *Heroku* [chris-r-city-explorer-server](https://chris-r-city-explorer-server.herokuapp.com/)
+*Beer API*: [Beer Mapping API](https://beermapping.com/api/reference/)
 
 ## Overview
 
@@ -29,6 +30,8 @@
 ## Credit and Collaborations
 
 - WRRC Planning - Chris Reichert and Chris Rarig
+- Background image 1 - Photo by Brett Zeck on Unsplash
+  
 
 ## Feature Time Reports
 
